@@ -2,7 +2,7 @@
 
 namespace MyPasswordManagerTutoriel.Models;
 
-internal class LoginCredential
+public class LoginCredential
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }

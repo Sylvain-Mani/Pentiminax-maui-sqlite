@@ -18,6 +18,7 @@ namespace MyPasswordManagerTutoriel
                 });
 
             builder.Services.AddSingleton<LoginCredentialListPage>();
+            builder.Services.AddTransient<LoginCredentialItemPage>();
             builder.Services.AddSingleton<Database>();
 
 #if DEBUG

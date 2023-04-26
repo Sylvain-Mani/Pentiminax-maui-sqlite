@@ -1,4 +1,5 @@
 ﻿using MyPasswordManagerTutoriel.Data;
+using MyPasswordManagerTutoriel.Models;
 
 namespace MyPasswordManagerTutoriel.Views;
 
@@ -14,15 +15,16 @@ public partial class LoginCredentialListPage : ContentPage
         this.database = database;
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        count++;
 
-        if (count == 1)
-            CounterBtn.Text = $"Clicked {count} time";
-        else
-            CounterBtn.Text = $"Clicked {count} times";
+    }
 
-        SemanticScreenReader.Announce(CounterBtn.Text);
+    private async void OnItemAdd(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(LoginCredentialItemPage), true, new Dictionary<string, object>
+        {
+            ["Item"] = new LoginCredential()
+        });
     }
 }
