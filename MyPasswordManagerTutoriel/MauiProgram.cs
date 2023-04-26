@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using MyPasswordManagerTutoriel.Data;
 
 namespace MyPasswordManagerTutoriel
 {
@@ -14,6 +15,8 @@ namespace MyPasswordManagerTutoriel
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<Database>();
 
 #if DEBUG
 		builder.Logging.AddDebug();

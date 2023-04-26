@@ -1,12 +1,17 @@
-﻿namespace MyPasswordManagerTutoriel
+﻿using MyPasswordManagerTutoriel.Data;
+
+namespace MyPasswordManagerTutoriel
 {
     public partial class MainPage : ContentPage
     {
+        private readonly Database database;
         int count = 0;
 
-        public MainPage()
+        public MainPage(Database database)
         {
             InitializeComponent();
+
+            this.database = database;
         }
 
         private void OnCounterClicked(object sender, EventArgs e)

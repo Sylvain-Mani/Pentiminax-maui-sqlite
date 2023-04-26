@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SQLite;
 
-namespace MyPasswordManagerTutoriel
+namespace MyPasswordManagerTutoriel;
+
+public class Constants
 {
-    internal class Constants
-    {
-    }
+    public const string DatabaseFilename = "database.db3";
+
+    public static string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+
+    public const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache;
+
 }
