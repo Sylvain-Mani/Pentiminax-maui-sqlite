@@ -8,6 +8,6 @@ public class Constants
 
     public static string DatabasePath = Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
 
-    public const SQLiteOpenFlags Flags = SQLiteOpenFlags.Create | SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.SharedCache;
+    public const SQLiteOpenFlags Flags = SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create | SQLiteOpenFlags.SharedCache;
 
 }

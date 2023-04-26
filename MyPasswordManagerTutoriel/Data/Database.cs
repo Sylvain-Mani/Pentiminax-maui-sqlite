@@ -1,6 +1,5 @@
 ﻿using MyPasswordManagerTutoriel.Models;
 using SQLite;
-using System.Threading.Tasks;
 
 namespace MyPasswordManagerTutoriel.Data;
 
@@ -19,6 +18,7 @@ public class Database
             return;
 
         connection = new(Constants.DatabasePath);
+        //connection = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
 
         await connection.CreateTableAsync<LoginCredential>();
     }
@@ -27,5 +27,25 @@ public class Database
     {
         await Initialize();
         return await connection.Table<LoginCredential>().ToListAsync();
+    }
+
+    public async Task<int> SaveItemAsync(LoginCredential item)
+    {
+        await Initialize();
+
+        if (item.Id != 0)
+        {
+            return await connection.UpdateAsync(item);
+        }
+        else
+        {
+            return await connection.InsertAsync(item);
+        }
+    }
+
+    public async Task<int> DeleteItemAsync(LoginCredential item)
+    {
+        await Initialize();
+        return await connection.DeleteAsync(item);
     }
 }
