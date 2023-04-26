@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using MyPasswordManagerTutoriel.Data;
+using MyPasswordManagerTutoriel.Views;
 
 namespace MyPasswordManagerTutoriel
 {
@@ -16,6 +17,7 @@ namespace MyPasswordManagerTutoriel
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<LoginCredentialListPage>();
             builder.Services.AddSingleton<Database>();
 
 #if DEBUG
